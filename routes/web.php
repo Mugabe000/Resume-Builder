@@ -1,6 +1,9 @@
 <?php
-
+namespace App\Livewire;
 use Illuminate\Support\Facades\Route;
+
+use App\Livewire\Resume;
+use Livewire\Component;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+})->group(function () {
+    Route::get('/resume',Resume::class)->name('resume');
 });
