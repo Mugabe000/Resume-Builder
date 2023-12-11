@@ -9,5 +9,5 @@ class user_detail extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fullname', 'phone', 'email', 'address'];
+    protected $fillable = ['user_id','fullname', 'phone', 'email', 'address'];
 }
