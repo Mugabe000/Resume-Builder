@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class=" flex-col  justify-center container text-white">
         <h2>Tell us something about you</h2>
 
         <form action="/user_detail" method="POST">
@@ -11,7 +11,7 @@
             <input type="text" name="phone" id="phone">
             <input type="text" name="address" id="address">
 
-            <input type="submit" value="Submit">
+            <button type="submit" class="rounded-md bg-blue-900 py-1 px-3">Submit</button>
         </form>
     </div>
 @endsection
