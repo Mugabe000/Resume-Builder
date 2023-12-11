@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserDetail;
-use Illuminate\Http\Request;
+use Illuminate\Http\Requesst;
 
 class UserDetailController extends Controller
 {
@@ -17,6 +17,8 @@ class UserDetailController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -28,7 +30,7 @@ class UserDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

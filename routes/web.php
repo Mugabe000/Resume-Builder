@@ -1,9 +1,8 @@
 <?php
-namespace App\Livewire;
+
 use Illuminate\Support\Facades\Route;
 
-use App\Livewire\Resume;
-use Livewire\Component;
+// use App\Http\Controllers\UserDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +28,14 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 })->group(function () {
-    Route::get('/resume',Resume::class)->name('resume');
+    Route::get('/resume', function () {
+        return view('resume');
+    })->name('resume');
 });
+
+
+// Route::get('user-detail/create', [UserDetailController, 'create']);
+Route::get('user_detail/create','App\Http\Controllers\UserDetailController@create');
+
+// Route::post('user-detail', [UserDetailController, 'store']);
+Route::post('user_detail', 'App\Http\Controllers\UserDetailController@store');
