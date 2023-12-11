@@ -52,7 +52,7 @@ class UserDetailController extends Controller
 
         $detail->save();
 
-        return back();
+        return redirect('education/create');
     }
 
     /**
