@@ -38,7 +38,7 @@ Route::middleware([
 
 
 // Route::get('user-detail/create', [UserDetailController, 'create']);
-Route::get('user_detail/create','App\Http\Controllers\UserDetailController@create');
+Route::get('user_detail/create','App\Http\Controllers\UserDetailController@create')->middleware('auth');
 
 // Route::post('user-detail', [UserDetailController, 'store']);
-Route::post('user_detail', 'App\Http\Controllers\UserDetailController@store');
+Route::post('user_detail', 'App\Http\Controllers\UserDetailController@store')->middleware('auth');

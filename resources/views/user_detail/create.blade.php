@@ -4,10 +4,18 @@
     <div class=" flex-col  justify-center container text-white">
         <h2>Tell us something about you</h2>
 
+        <div>
+            @if (session()->has('errors'))
+                @foreach ($errors->all() as $error)
+                    <p class="text-red">{{ $error }}</p>
+                @endforeach
+            @endif
+        </div>
+
         <form action="/user_detail" method="POST">
             @csrf
             <input type="text" name="fullname" id="fullname">
-            <input type="text" name="email" id="email">
+            <input type="email" name="email" id="email">
             <input type="text" name="phone" id="phone">
             <input type="text" name="address" id="address">
 
