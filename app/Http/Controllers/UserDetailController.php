@@ -13,7 +13,9 @@ class UserDetailController extends Controller
      */
     public function index()
     {
-        //
+        $details = auth()->user()->details;
+
+        return view('user_detail.index', compact('details'));
     }
 
     /**
@@ -68,7 +70,7 @@ class UserDetailController extends Controller
      */
     public function edit(UserDetail $userDetail)
     {
-        //
+       return view('user_detail.edit', compact('userDetail'));
     }
 
     /**
@@ -76,7 +78,16 @@ class UserDetailController extends Controller
      */
     public function update(Request $request, UserDetail $userDetail)
     {
-        //
+        $request->validate([
+            'fullname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+        ]);
+
+
+        $userDetail->update($request->except('_token'));
+
+        return redirect()->route('user_detail.index');
     }
 
     /**
@@ -84,6 +95,7 @@ class UserDetailController extends Controller
      */
     public function destroy(UserDetail $userDetail)
     {
-        //
+        $userDetail->delete();
+        return back();
     }
 }

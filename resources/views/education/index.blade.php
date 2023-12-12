@@ -49,14 +49,15 @@
         <a href=" {{ route('education.create') }} " role="button"><button
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">+ Add another
                 Education</button></a>
-        {{-- </div>
-    <div class="row mt-3">
-        <div class="col text-left">
-            <a class="btn btn-secondary" href=" {{ route('education.create') }} " role="button">Back</a>
-        </div>
 
-        <div class="col text-right">
-            <a class=" btn btn-primary" href=" {{ route('experience.index') }} " role="button">Work History</a>
-        </div> --}}
+        <div class="mt-3">
+
+            <div class="text-left">
+                <a href=" {{ route('education.create') }} " role="button">Back</a>
+            </div>
+            <div class="text-right">
+                <a href=" {{ route('experience.index') }} " role="button">Experience</a>
+            </div>
+        </div>
     </div>
 @endsection

@@ -56,9 +56,14 @@
         <a href=" {{ route('experience.create') }} " role="button"><button
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">+ Add
                 Experience</button></a>
+        <div class="mt-3">
 
-        <div class="text-right">
-            <a class=" btn btn-primary" href=" {{ route('skill.index') }} " role="button">Next</a>
+            <div class="text-left">
+                <a href=" {{ route('education.index') }} " role="button">Education</a>
+            </div>
+            <div class="text-right">
+                <a href=" {{ route('skill.index') }} " role="button">Skills</a>
+            </div>
         </div>
     </div>
 @endsection
