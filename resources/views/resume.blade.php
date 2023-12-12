@@ -19,20 +19,6 @@
 
     <!-- Styles -->
     @livewireStyles
-
-    <style>
-        h2 {
-            font-weight: 100;
-            padding: 20px 0;
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
-        }
-
-        .container {
-            width: 70%;
-            margin: 0 auto;
-        }
-    </style>
 </head>
 
 <body class="font-sans antialiased">
@@ -46,70 +32,78 @@
                 <h2 class="font-bold">Welcome to Resume Builder Builder</h2>
 
 
-                <a name="" id="" class="btn btn-primary" href="/user_detail/create" role="button">
+                <a href="/user_detail/create" role="button">
                     <button
                         class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Create
                         Resume</button></a>
 
             </div>
 
-            <div class="bg-white mr-9 w-8/12">
-                <h2>Resume</h2>
+            <div class="mr-9 w-10/12">
+                <div class="bg-white  mr-1 w-9/12">
+                    <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Resume</h2>
 
-                <section class="heading">
-                    <h2>{{ $user->details->fullname }}</h2>
+                    <section class="heading">
+                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">{{ $user->details->fullname }}
+                        </h2>
 
-                    <p>Email: {{ $user->details->email }}</p>
-                    <p>Phone: {{ $user->details->phone }}</p>
-                    <p>Address: {{ $user->details->address }}</p>
+                        <p>Email: {{ $user->details->email }}</p>
+                        <p>Phone: {{ $user->details->phone }}</p>
+                        <p>Address: {{ $user->details->address }}</p>
 
-                </section>
+                    </section>
 
-                <section class="summary">
-                    <h2>Summary:</h2>
+                    <section class="summary">
+                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Summary:</h2>
 
-                    <p>
-                        <strong>
-                            {{ $user->details->summary }}
-                        </strong>
-                    </p>
-                </section>
+                        <p>
+                            <strong>
+                                {{ $user->details->summary }}
+                            </strong>
+                        </p>
+                    </section>
 
-                <section class="education">
+                    <section class="education">
 
-                    <h2>Education</h2>
+                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Education</h2>
 
-                    @foreach ($user->education as $edu)
-                        <h4> Degree: {{ $edu->degree }}</h4>
+                        @foreach ($user->education as $edu)
+                            <h4> Degree: {{ $edu->degree }}</h4>
 
-                        <p>School: {{ $edu->school_name }} </p>
-                        <p>Start Date: {{ $edu->graduation_start_date }} </p>
-                        <p>Graduation Date: {{ $edu->graduation_end_date }} </p>
-                    @endforeach
-                </section>
+                            <p>School: {{ $edu->school_name }} </p>
+                            <p>Start Date: {{ $edu->graduation_start_date }} </p>
+                            <p>Graduation Date: {{ $edu->graduation_end_date }} </p>
+                        @endforeach
+                    </section>
 
-                <section class="work">
-                    <h2>Work History</h2>
+                    <section class="work">
+                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Work History</h2>
 
-                    @foreach ($user->experiences as $work)
-                        <h3>
-                            Job Title: {{ $work->job_title }}
-                        </h3>
-                        <p>Employer: {{ $work->employer }} </p>
-                        <p>Start Date: {{ $work->start_date }} </p>
-                        <p>End Date: {{ $work->end_date }} </p>
-                    @endforeach
-                </section>
+                        @foreach ($user->experiences as $work)
+                            <h3>
+                                Job Title: {{ $work->job_title }}
+                            </h3>
+                            <p>Employer: {{ $work->employer }} </p>
+                            <p>Start Date: {{ $work->start_date }} </p>
+                            <p>End Date: {{ $work->end_date }} </p>
+                        @endforeach
+                    </section>
 
-                <section class="skill">
+                    <section class="skill">
 
-                    <h2>Skills</h2>
+                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Skills</h2>
 
-                    @foreach ($user->skills as $skill)
-                        <h4> {{ $skill->name }} ({{ $skill->rating }} out of 5)</h4>
-                    @endforeach
-                </section>
+                        @foreach ($user->skills as $skill)
+                            <h4> {{ $skill->name }} ({{ $skill->rating }} out of 5)</h4>
+                        @endforeach
+                    </section>
 
+                </div>
+                <a href="{{ route('resume.download') }}"><button
+                        class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">
+                        Download
+                    </button>
+                </a>
             </div>
         </div>
 
