@@ -21,8 +21,9 @@
             </li>
 
         </ul>
-
-        <h2>Education Summary</h2>
+        <div class="text-left  w-9/12 mr-auto ">
+            <h2>Education Summary: </h2>
+        </div>
 
         @foreach ($education as $edu)
             <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
@@ -53,10 +54,11 @@
         <div class="mt-3">
 
             <div class="text-left">
-                <a href=" {{ route('education.create') }} " role="button">Back</a>
+                <a href=" {{ route('education.create') }} " role="button">
+                    &lt;&lt;back </a>
             </div>
             <div class="text-right">
-                <a href=" {{ route('experience.index') }} " role="button">Experience</a>
+                <a href=" {{ route('experience.index') }} " role="button">Experience&gt;&gt;</a>
             </div>
         </div>
     </div>

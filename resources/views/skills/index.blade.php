@@ -24,7 +24,7 @@
         </ul>
 
         <div class="text-left  w-9/12 mr-auto ">
-            <h2 class="font-bold">Skill Summary:</h2>
+            <h2 class="font-bold">Skill Summary: </h2>
         </div>
 
 
@@ -45,10 +45,15 @@
                     </form>
 
                 </div>
+            </div>
         @endforeach
 
         <a href=" {{ route('skill.create') }} " role="button"><button
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">+ Add
                 skill</button></a>
+
+        <div class="text-left">
+            <a href=" {{ route('experience.index') }} " role="button">&lt;&lt;Experience</a>
+        </div>
     </div>
 @endsection

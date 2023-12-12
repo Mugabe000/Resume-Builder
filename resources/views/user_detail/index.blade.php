@@ -24,7 +24,7 @@
         </ul>
 
         <div class="text-left  w-9/12 mr-auto ">
-            <h2 class="font-bold">About</h2>
+            <h2 class="font-bold">About: </h2>
         </div>
 
 

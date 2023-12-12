@@ -24,7 +24,7 @@
         </ul>
 
         <div class="text-left  w-9/12 mr-auto ">
-            <h2 class="font-bold">Work Summary:</h2>
+            <h2 class="font-bold">Work Summary: </h2>
         </div>
 
 
@@ -51,6 +51,7 @@
                     </form>
 
                 </div>
+            </div>
         @endforeach
 
         <a href=" {{ route('experience.create') }} " role="button"><button
@@ -59,10 +60,10 @@
         <div class="mt-3">
 
             <div class="text-left">
-                <a href=" {{ route('education.index') }} " role="button">Education</a>
+                <a href=" {{ route('education.index') }} " role="button">&lt;&lt;Education</a>
             </div>
             <div class="text-right">
-                <a href=" {{ route('skill.index') }} " role="button">Skills</a>
+                <a href=" {{ route('skill.index') }} " role="button">Skills&gt;&gt;</a>
             </div>
         </div>
     </div>
