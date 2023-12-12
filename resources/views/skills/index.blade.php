@@ -13,36 +13,30 @@
                     href="{{ route('education.index') }}">Education</a>
             </li>
             <li class="mr-1">
-                <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
+                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
                     href="{{ route('experience.index') }}">Work History</a>
             </li>
             <li class="mr-1">
-                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
                     href="{{ route('skill.index') }}">Skills</a>
             </li>
 
         </ul>
 
         <div class="text-left  w-9/12 mr-auto ">
-            <h2 class="font-bold">Work Summary:</h2>
+            <h2 class="font-bold">Skill Summary:</h2>
         </div>
 
 
-        @foreach ($experiences as $exp)
+        @foreach ($skills as $skill)
             <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
                 <div class="mb-2">
-                    <h4> {{ $exp->job_title }} ({{ $exp->start_date }} to {{ $exp->end_date }}) </h4>
+                    <h4> {{ $skill->name }} ({{ $skill->rating }}) </h4>
 
-                    <ul>
-                        <li>{{ $exp->employer }}</li>
-                        <li>{{ $exp->city }}</li>
-                        <li>{{ $exp->state }}</li>
-                    </ul>
-
-                    <a href=" {{ route('experience.edit', $exp) }} " role="button"><button
+                    <a href=" {{ route('skill.edit', $skill) }} " role="button"><button
                             class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
 
-                    <form action="{{ route('experience.destroy', $exp) }}" method="POST" style="display: inline-block">
+                    <form action="{{ route('skill.destroy', $skill) }}" method="POST" style="display: inline-block">
                         @csrf
                         @method('DELETE')
 
@@ -53,12 +47,8 @@
                 </div>
         @endforeach
 
-        <a href=" {{ route('experience.create') }} " role="button"><button
+        <a href=" {{ route('skill.create') }} " role="button"><button
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">+ Add
-                Experience</button></a>
-
-        <div class="text-right">
-            <a class=" btn btn-primary" href=" {{ route('skill.index') }} " role="button">Next</a>
-        </div>
+                skill</button></a>
     </div>
 @endsection

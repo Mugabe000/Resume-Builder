@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\SkillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,5 @@ Route::resource('user_detail', UserDetailController::class)->middleware('auth');
 Route::resource('education', EducationController::class)->middleware('auth');
 
 Route::resource('experience', ExperienceController::class)->middleware('auth');
+
+Route::resource('skill', SkillController::class)->middleware('auth');
