@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-white mb-2  w-9/12 ml-auto mr-auto">
+    <div class="text-white mb-2  relative w-9/12 ml-auto mr-auto">
 
         <ul class="flex border-b">
             <li class="mr-1">
@@ -48,4 +48,17 @@
 
 
         </div>
-    @endsection
+        <div class=" flex-col h-screen right-2 w-10/12  absolute top-26">
+            <iframe src="/templates" class=" w-full h-full"></iframe>
+            <div class="flex justify-between">
+                <button
+                    class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button>
+                <a href="{{ route('resume.download') }}"><button
+                        class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">
+                        Save
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+@endsection
