@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Builder</title>
-</head>
-
-<body>
+<div>
     <nav>
-        <a href="/login" wire:navigate>Login</a>
-        <a href="/register" wire:navigate>Register</a>
+        <a href="/login" wire:navigate><button>Login</button></a>
+        <a href="/register" wire:navigate><button>Register</button></a>
     </nav>
-    <livewire:welcome />
-</body>
-
-</html>
+    <h1>Welcome to Online Resume Builder!</h1>
+</div>

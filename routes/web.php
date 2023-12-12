@@ -1,6 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+
+
+use App\Http\Controllers\UserDetailController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ResumeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +34,19 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+})->group(function () {
+    Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
 });
+
+
+Route::resource('user_detail', UserDetailController::class)->middleware('auth');
+
+Route::resource('education', EducationController::class)->middleware('auth');
+
+Route::resource('experience', ExperienceController::class)->middleware('auth');
+
+Route::resource('skill', SkillController::class)->middleware('auth');
+
+Route::get('resume/index', [ResumeController::class,'index'])->name('resume.index')->middleware('auth');
+
+Route::get('resume/download', [ResumeController::class,'download'])->name('resume.download')->middleware('auth');
