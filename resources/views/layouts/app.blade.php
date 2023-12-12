@@ -36,6 +36,15 @@
 
         <!-- Page Content -->
         <main>
+            {{-- Validation Errors --}}
+            <div>
+                @if (session()->has('errors'))
+                    @foreach ($errors->all() as $error)
+                        <p class="text-red mr-auto ml-auto">{{ $error }}</p>
+                    @endforeach
+                @endif
+            </div>
+
             @yield('content')
             @if (isset($slot))
                 {{ $slot }}

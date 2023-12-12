@@ -6,14 +6,6 @@
             <h2 class="font-bold">Tell us something about you</h2>
         </div>
 
-        <div>
-            @if (session()->has('errors'))
-                @foreach ($errors->all() as $error)
-                    <p class="text-red mr-auto ml-auto">{{ $error }}</p>
-                @endforeach
-            @endif
-        </div>
-
         <form class="flex-col w-11/12 ml-auto mr-auto justify-center" action="/user_detail" method="POST">
             @csrf
             <label for="fullname" class=" block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white">
