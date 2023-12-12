@@ -9,6 +9,7 @@ use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\ResumeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 })->group(function () {
-    Route::get('/resume', function () {
-        return view('resume');
-    })->name('resume');
+    Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
 });
 
 
@@ -47,3 +46,5 @@ Route::resource('education', EducationController::class)->middleware('auth');
 Route::resource('experience', ExperienceController::class)->middleware('auth');
 
 Route::resource('skill', SkillController::class)->middleware('auth');
+
+Route::get('resume/index', [ResumeController::class,'index'])->name('resume.index')->middleware('auth');

@@ -29,6 +29,10 @@
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5 ">
             </label>
 
+            <label for="summary" class="block mb-2 text-sm font-medium text-black">
+                <textarea name="summary" id="summary" cols="55" rows="4"></textarea>
+            </label>
+
             <button type="submit"
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-1/2">Submit</button>
         </form>

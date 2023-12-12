@@ -20,8 +20,6 @@ class UserDetailController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -30,16 +28,14 @@ class UserDetailController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $request->validate([
             'fullname'=>'required',
             'email'=>'required|email',
-            'phone'=>'required'
+            'phone'=>'required',
+            'summary' => 'required',
 
         ]);
 
@@ -82,6 +78,7 @@ class UserDetailController extends Controller
             'fullname' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
+            'summary' => 'required',
         ]);
 
 
