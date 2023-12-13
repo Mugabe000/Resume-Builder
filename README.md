@@ -13,30 +13,28 @@
 ### Go to the root of the project
 and run: 
 - ```bash
-  npm install
-  
+  npm install 
   ```
 - ```bash
-    composer install
-  
+   composer install
     ```
 - ```bash
-    cp .env.example .env
+   cp .env.example .env
     ```
- - ```bash
-      php artisan key:generate
-      ```
 - ```bash
-      php artisan migrate
+   php artisan key:generate
+  ```
+- ```bash
+   php artisan migrate
   ```
 
 ### The last step is to run the app on your local device
 
  - Run:
-       ```bash
+      - ```bash
          npm run dev
          ```
  - Run:
-        ```bash
+      - ```bash
          php artisan serve
         ```
