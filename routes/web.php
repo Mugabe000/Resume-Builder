@@ -35,7 +35,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 })->group(function () {
-    Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
+    // Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
+    Route::get('resume', function () {
+        return view('resume');
+    })->name('resume');
 });
 
 
