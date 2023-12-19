@@ -29,8 +29,9 @@
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5 ">
             </label>
 
-            <label for="summary" class="block mb-2 text-sm font-medium text-black">
-                <textarea name="summary" id="summary" cols="55" rows="4"></textarea>
+            <label for="summary" class="block mb-2 flex-col text-sm font-medium text-white">
+                <p>About:</p>
+                <textarea name="summary" id="summary" cols="55" rows="4" class="text-black"></textarea>
             </label>
 
             <button type="submit"

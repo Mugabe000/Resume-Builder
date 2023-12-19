@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('employer');
             $table->string('city');
             $table->string('state');
+            $table->string('achievement');
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

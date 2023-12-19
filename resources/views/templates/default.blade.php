@@ -12,98 +12,160 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+            font-family: Figtree, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
+        section {
+            padding: 1.5rem 0 .80rem;
+        }
 
-    <!-- Styles -->
-    @livewireStyles
+        .section-title {
+            font-weight: bolder;
+            border-bottom: 1px solid black;
+            text-transform: uppercase;
+            letter-spacing: .35rem;
+            text-align: center;
+        }
+
+        .container {
+            margin: 2.25rem;
+            width: fit-content;
+            padding: 2rem;
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .about {}
+
+        .summary {}
+
+        .education {}
+
+        .experience {}
+
+        .skills {}
+
+        .content {
+            margin: 0 1rem .5rem 1rem;
+        }
+
+        .content .flex-container>div {
+            display: flex;
+            gap: .25rem;
+        }
+    </style>
 </head>
 
-<body class="font-sans antialiased">
-    <x-banner />
+<body>
 
-    <div class="mr-9 w-full">
-        <div class="bg-white  mr-1 p-3">
+    <div class="container">
 
-            <section class="heading text-center">
-                <h2 class="font-bold text-center pt-5 pb-1 border-solid  border-b border-black">
-                    {{ $user->details->fullname }}
-                </h2>
+        <section class="about">
+            <h2 class="section-title">
+                {{ $user->details->fullname }}
+            </h2>
+            <div class="content" style="text-align: center">
+
                 <p>{{ $user->details->address }}</p>
 
                 <p> {{ $user->details->email }}</p>
 
                 <p>{{ $user->details->phone }}</p>
+            </div>
 
-            </section>
+        </section>
 
-            <section class="summary">
-                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Summary</h2>
+        <section class="summary">
+            <h2 class=" section-title ">Summary</h2>
 
-                <p>
-                    <em>
-                        {{ $user->details->summary }}
-                    </em>
-                </p>
-            </section>
+            <div class="content" style="text-align: left">
+                <em>
+                    {{ $user->details->summary }}
+                </em>
+            </div>
+        </section>
 
-            <section class="education">
+        <section class="education">
 
-                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Education</h2>
+            <h2 class=" section-title ">Education</h2>
 
-                @foreach ($user->education as $edu)
-                    <div class="mb-2">
-                        <div class="flex justify-between">
-                            <p>{{ $edu->school_name }} </p>
-                            <p>{{ $edu->school_location }}</p>
+            @foreach ($user->education as $edu)
+                <div class="content">
+                    <div class="flex-container">
+                        <div>
+                            <strong>{{ $edu->school_name }}</strong>
+                        </div>
+                        <div>{{ $edu->school_location }}</div>
+                    </div>
+
+                    <div class="flex-container">
+
+                        <div>
+                            <strong>{{ $edu->degree }}:</strong>
+                            {{ $edu->field_of_study }}
                         </div>
 
-                        <div class="flex justify-between">
-                            <div class="flex gap-1">
-                                <h4>{{ $edu->degree }}</h4>
-                                <p>{{ $edu->field_of_study }}</p>
-                            </div>
-                            <div>from {{ $edu->graduation_start_date }} to {{ $edu->graduation_end_date }} </div>
+                        <div>from {{ $edu->graduation_start_date }} to {{ $edu->graduation_end_date }} </div>
+                    </div>
+                </div>
+            @endforeach
+        </section>
+
+        <section class="experience">
+            <h2 class=" section-title ">Experience</h2>
+
+            @foreach ($user->experiences as $work)
+                <div class="content">
+                    <div class="flex-container">
+                        <div>
+                            <strong>{{ $work->employer }}</strong>
+                        </div>
+                        <div>{{ $work->state }}</div>
+                    </div>
+                    <div class="flex-container">
+                        <div>
+                            <strong>{{ $work->job_title }}</strong>
+                        </div>
+                        <div>
+                            from {{ $work->start_date }} to {{ $work->end_date }}
                         </div>
                     </div>
-                @endforeach
-            </section>
-
-            <section class="work">
-                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Experience</h2>
-
-                @foreach ($user->experiences as $work)
-                    <div class="mb-2">
-                        <div class="flex justify-between">
-                            <p>{{ $work->employer }} </p>
-                            <p>{{ $work->state }}</p>
-                        </div>
-                        <div class="flex justify-between">
-                            <p> {{ $work->job_title }}</p>
-                            <div>
-                                from {{ $work->start_date }} to {{ $work->end_date }}
-                            </div>
-                        </div>
+                    <div>
+                        {{ $work->achievement }}
                     </div>
+                </div>
+            @endforeach
+        </section>
+
+        <section class="skills">
+
+            <h2 class=" section-title ">Skills</h2>
+
+            <ul>
+                @foreach ($user->skills as $skill)
+                    <li>
+                        {{ $skill->name }}
+                    </li>
                 @endforeach
-            </section>
+            </ul>
+        </section>
 
-            <section class="skill">
-
-                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Skills</h2>
-
-                <ul>
-                    @foreach ($user->skills as $skill)
-                        <li>
-                            {{ $skill->name }}
-                        </li>
-                    @endforeach
-                </ul>
-            </section>
-
-        </div>
     </div>
 
 </body>
