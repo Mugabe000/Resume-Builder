@@ -25,62 +25,82 @@
     <x-banner />
 
     <div class="mr-9 w-full">
-        <div class="bg-white  mr-1">
-            <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Resume</h2>
+        <div class="bg-white  mr-1 p-3">
 
-            <section class="heading">
-                <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">{{ $user->details->fullname }}
+            <section class="heading text-center">
+                <h2 class="font-bold text-center pt-5 pb-1 border-solid  border-b border-black">
+                    {{ $user->details->fullname }}
                 </h2>
+                <p>{{ $user->details->address }}</p>
 
-                <p>Email: {{ $user->details->email }}</p>
-                <p>Phone: {{ $user->details->phone }}</p>
-                <p>Address: {{ $user->details->address }}</p>
+                <p> {{ $user->details->email }}</p>
+
+                <p>{{ $user->details->phone }}</p>
 
             </section>
 
             <section class="summary">
-                <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Summary:</h2>
+                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Summary</h2>
 
                 <p>
-                    <strong>
+                    <em>
                         {{ $user->details->summary }}
-                    </strong>
+                    </em>
                 </p>
             </section>
 
             <section class="education">
 
-                <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Education</h2>
+                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Education</h2>
 
                 @foreach ($user->education as $edu)
-                    <h4> Degree: {{ $edu->degree }}</h4>
+                    <div class="mb-2">
+                        <div class="flex justify-between">
+                            <p>{{ $edu->school_name }} </p>
+                            <p>{{ $edu->school_location }}</p>
+                        </div>
 
-                    <p>School: {{ $edu->school_name }} </p>
-                    <p>Start Date: {{ $edu->graduation_start_date }} </p>
-                    <p>Graduation Date: {{ $edu->graduation_end_date }} </p>
+                        <div class="flex justify-between">
+                            <div class="flex gap-1">
+                                <h4>{{ $edu->degree }}</h4>
+                                <p>{{ $edu->field_of_study }}</p>
+                            </div>
+                            <div>from {{ $edu->graduation_start_date }} to {{ $edu->graduation_end_date }} </div>
+                        </div>
+                    </div>
                 @endforeach
             </section>
 
             <section class="work">
-                <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Work History</h2>
+                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Experience</h2>
 
                 @foreach ($user->experiences as $work)
-                    <h3>
-                        Job Title: {{ $work->job_title }}
-                    </h3>
-                    <p>Employer: {{ $work->employer }} </p>
-                    <p>Start Date: {{ $work->start_date }} </p>
-                    <p>End Date: {{ $work->end_date }} </p>
+                    <div class="mb-2">
+                        <div class="flex justify-between">
+                            <p>{{ $work->employer }} </p>
+                            <p>{{ $work->state }}</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p> {{ $work->job_title }}</p>
+                            <div>
+                                from {{ $work->start_date }} to {{ $work->end_date }}
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </section>
 
             <section class="skill">
 
-                <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Skills</h2>
+                <h2 class="font-bold pt-5 pb-1 border-solid text-center border-b border-black">Skills</h2>
 
-                @foreach ($user->skills as $skill)
-                    <h4> {{ $skill->name }} ({{ $skill->rating }} out of 5)</h4>
-                @endforeach
+                <ul>
+                    @foreach ($user->skills as $skill)
+                        <li>
+                            {{ $skill->name }}
+                        </li>
+                    @endforeach
+                </ul>
             </section>
 
         </div>

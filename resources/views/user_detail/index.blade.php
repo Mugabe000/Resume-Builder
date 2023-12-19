@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-white mb-2  relative w-9/12 ml-auto mr-auto">
+    <div class="text-white mb-2 h-screen overflow-y-auto relative  w-9/12 ml-auto mr-auto">
 
-        <ul class="flex border-b">
+        <ul class="flex border-b sticky">
             <li class="mr-1">
                 <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
                     href="{{ route('user_detail.index') }}">Home</a>
@@ -23,13 +23,13 @@
 
         </ul>
 
-        <div class="text-left  w-9/12 mr-auto ">
+        <div class="text-left  w-9/12 mr-auto sticky">
             <h2 class="font-bold">About: </h2>
         </div>
 
 
 
-        <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
+        <div class="px-4 py-2 text-white mb-4 border-solid border border-black  sticky">
             <div class="mb-2">
                 <h4> {{ $details->fullname }} {{ $details->email }} {{ $details->phone }} </h4>
 
@@ -48,13 +48,13 @@
 
 
         </div>
-        <div class=" flex-col h-screen right-2 w-10/12  absolute top-26">
-            <iframe src="/templates" class=" w-full h-full"></iframe>
-            <div class="flex justify-between">
-                <button
-                    class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button>
+        <div class=" flex-col  right-2 w-10/12 overflow-y-auto absolute top-40 z-50 h-full">
+            <iframe src="/templates" class=" w-full border-none  h-5/6"></iframe>
+            <div class="flex justify-between z-50 ">
+                {{-- <button
+                    class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button> --}}
                 <a href="{{ route('resume.download') }}"><button
-                        class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">
+                        class="px-6 py-1 mt-2  bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">
                         Save
                     </button>
                 </a>

@@ -14,11 +14,11 @@
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5">
             </label>
 
-            <label for="rating" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            {{-- <label for="rating" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Rating:
                 <input type="text" placeholder="Rating" name="rating" id="rating"
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5">
-            </label>
+            </label> --}}
 
 
             <button type="submit"

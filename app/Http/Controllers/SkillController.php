@@ -32,7 +32,7 @@ class SkillController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'rating'=>'required',
+            // 'rating'=>'required',
         ]);
 
         auth()->user()->skills()->create($request->all());
@@ -63,7 +63,7 @@ class SkillController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'rating' => 'required',
+            // 'rating' => 'required',
         ]);
 
         $skill->update($request->all());

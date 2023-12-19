@@ -31,7 +31,8 @@
         @foreach ($skills as $skill)
             <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
                 <div class="mb-2">
-                    <h4> {{ $skill->name }} ({{ $skill->rating }}) </h4>
+                    {{-- <h4> {{ $skill->name }} ({{ $skill->rating }}) </h4> --}}
+                    <h4> {{ $skill->name }} </h4>
 
                     <a href=" {{ route('skill.edit', $skill) }} " role="button"><button
                             class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>

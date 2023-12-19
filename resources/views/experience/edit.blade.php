@@ -31,7 +31,7 @@
             </label>
 
             <label for="state" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                State:
+                Country/State:
                 <input type="text" placeholder="State" name='state' id="state"
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5" value="{{ $experience->state }}">
             </label>
