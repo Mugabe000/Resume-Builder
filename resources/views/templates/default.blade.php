@@ -13,59 +13,68 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <style>
-        *,
-        ::before,
-        ::after {
+        * {
             box-sizing: border-box;
+            overflow: auto;
+            scroll-behavior: smooth;
         }
 
         html {
             scroll-behavior: smooth;
-            font-family: Figtree, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .body {
+            width: 60%;
+            height: fit-content;
+            padding: 2rem;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #999;
+        }
+
+        .flex-body {
+            display: flex;
+            justify-content: space-between;
         }
 
         section {
-            padding: 1.5rem 0 .80rem;
+            padding: 0 .80rem;
         }
 
         .section-title {
             font-weight: bolder;
             border-bottom: 1px solid black;
             text-transform: uppercase;
-            letter-spacing: .35rem;
             text-align: center;
         }
 
-        .container {
-            margin: 2.25rem;
-            width: fit-content;
-            padding: 2rem;
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-        }
+        /* .about {} */
 
-        .flex-container {
+        /* .summary {} */
+
+        /* .education {} */
+
+        /* .experience {} */
+
+        .skills>ul {
             display: flex;
-            justify-content: space-between;
+            gap: 2rem;
         }
-
-        .about {}
-
-        .summary {}
-
-        .education {}
-
-        .experience {}
-
-        .skills {}
 
         .content {
-            margin: 0 1rem .5rem 1rem;
+            margin: .5rem 1rem;
         }
 
-        .content .flex-container>div {
+        .content .flex-body>div {
             display: flex;
             gap: .25rem;
         }
@@ -73,8 +82,7 @@
 </head>
 
 <body>
-
-    <div class="container">
+    <div class="body" id="container">
 
         <section class="about">
             <h2 class="section-title">
@@ -94,7 +102,7 @@
         <section class="summary">
             <h2 class=" section-title ">Summary</h2>
 
-            <div class="content" style="text-align: left">
+            <div class="content">
                 <em>
                     {{ $user->details->summary }}
                 </em>
@@ -107,21 +115,23 @@
 
             @foreach ($user->education as $edu)
                 <div class="content">
-                    <div class="flex-container">
+                    <div class="flex-body">
                         <div>
                             <strong>{{ $edu->school_name }}</strong>
                         </div>
-                        <div>{{ $edu->school_location }}</div>
+                        <div style="text-align: right"><strong>{{ $edu->school_location }}</strong></div>
                     </div>
 
-                    <div class="flex-container">
+                    <div class="flex-body">
 
                         <div>
                             <strong>{{ $edu->degree }}:</strong>
                             {{ $edu->field_of_study }}
                         </div>
 
-                        <div>from {{ $edu->graduation_start_date }} to {{ $edu->graduation_end_date }} </div>
+                        <div style="text-align: right; display:inline-block">
+                            <em>from {{ $edu->graduation_start_date }} to {{ $edu->graduation_end_date }}</em>
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -132,18 +142,18 @@
 
             @foreach ($user->experiences as $work)
                 <div class="content">
-                    <div class="flex-container">
+                    <div class="flex-body">
                         <div>
                             <strong>{{ $work->employer }}</strong>
                         </div>
-                        <div>{{ $work->state }}</div>
+                        <div style="text-align: right"><strong>{{ $work->state }}</strong></div>
                     </div>
-                    <div class="flex-container">
+                    <div class="flex-body">
                         <div>
                             <strong>{{ $work->job_title }}</strong>
                         </div>
-                        <div>
-                            from {{ $work->start_date }} to {{ $work->end_date }}
+                        <div style="text-align: right">
+                            <em> from {{ $work->start_date }} to {{ $work->end_date }}</em>
                         </div>
                     </div>
                     <div>

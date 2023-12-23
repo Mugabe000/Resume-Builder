@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-white mb-2 h-screen overflow-y-auto relative  w-9/12 ml-auto mr-auto">
+    <div class="text-white mb-2 h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
         <ul class="flex border-b sticky">
             <li class="mr-1">
@@ -48,8 +48,8 @@
 
 
         </div>
-        <div class=" flex-col  right-2 w-10/12 overflow-y-auto absolute top-40 z-50 h-full">
-            <iframe src="/templates" class=" w-full border-none  h-5/6"></iframe>
+        <div class=" flex-col  right-2 w-10/12 overflow-auto absolute top-40 z-50 h-full">
+            <iframe src="/templates" class="overflow-auto w-full border-none  h-5/6"></iframe>
             <div class="flex justify-between z-50 ">
                 {{-- <button
                     class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button> --}}
