@@ -18,7 +18,7 @@ class UserDetailFactory extends Factory
     {
         return [
             'user_id'=>1,
-            'fullname'=>$this->faker->name,
+            'fullname'=>$this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone'=>fake()->unique()->e164PhoneNumber(),
             'address'=>$this->faker->words(1,true),

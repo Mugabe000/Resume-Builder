@@ -21,10 +21,10 @@ class ExperienceFactory extends Factory
         return [
             'user_id'=>1,
             'job_title'=>$this->faker->words(5, true),
-            'employer'=>$this->faker->name,
-            'city'=>$this->faker->name,
-            'state'=>$this->faker->name,
-            'achievement'=>$this->faker->sentence(),
+            'employer'=>$this->faker->name(),
+            'city'=>$this->faker->name(),
+            'state'=>$this->faker->name(),
+            'achievement'=>$this->faker->sentence(20),
             'start_date'=>Carbon::now(),
             'end_date'=>Carbon::now()
 
