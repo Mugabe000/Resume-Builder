@@ -38,3 +38,11 @@ and run:
       - ```bash
          php artisan serve
         ```
+
+### Testing the app functionality
+- Run:
+   - ```bash
+      php artisan migrate:refresh --seed
+     ```
+
+  <em><small>Then go check in the database for user email </small> and the  password is '<strong>password</strong>'</em>
