@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-white mb-2 h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
+    <div class="text-white  mb-2 min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
         <ul class="flex border-b sticky">
             <li class="mr-1">
@@ -29,7 +29,7 @@
 
 
 
-        <div class="px-4 py-2 text-white mb-4 border-solid border border-black  sticky">
+        <div class="px-4 py-2 text-white mb-4  border-solid border border-black  sticky">
             <div class="mb-2">
                 <h4> {{ $details->fullname }} {{ $details->email }} {{ $details->phone }} </h4>
 
@@ -48,9 +48,9 @@
 
 
         </div>
-        <div class=" flex-col  right-2 w-10/12 overflow-auto absolute top-40 z-50 h-full">
-            <iframe src="/templates" class="overflow-auto w-full border-none  h-5/6"></iframe>
-            <div class="flex justify-between z-50 ">
+        <div class=" flex-col  right-2 w-10/12 overflow-hidden  absolute top-40 z-50 h-5/6">
+            <iframe src="/templates" class="overflow-hidden w-full border-none  h-5/6"></iframe>
+            <div class="flex justify-between h-fit z-50 bg-blue-950 ">
                 {{-- <button
                     class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button> --}}
                 <a href="{{ route('resume.download') }}"><button
