@@ -48,6 +48,8 @@ Route::resource('education', EducationController::class)->middleware('auth');
 
 Route::resource('experience', ExperienceController::class)->middleware('auth');
 
+Route::resource('referees', RefereesController::class)->middleware('auth');
+
 Route::resource('skill', SkillController::class)->middleware('auth');
 
 Route::get('/templates', [ResumeController::class,'index'])->name('templates.default')->middleware('auth');

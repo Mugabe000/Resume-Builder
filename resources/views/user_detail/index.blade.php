@@ -50,7 +50,7 @@
         </div>
         <div class=" flex-col  right-2 w-10/12 overflow-hidden  absolute top-40 z-50 h-5/6">
             <iframe src="/templates" class="overflow-hidden w-full border-none  h-5/6"></iframe>
-            <div class="flex justify-between h-fit z-50 bg-blue-950 ">
+            <div class="flex justify-between h-fit  z-50 bg-blue-950 ">
                 {{-- <button
                     class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button> --}}
                 <a href="{{ route('resume.download') }}"><button
