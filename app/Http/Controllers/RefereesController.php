@@ -53,15 +53,15 @@ class RefereesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Referees $referees)
+    public function edit(Referees $referee)
     {
-        return view('referees.edit', compact('referees'));
+        return view('referees.edit', compact('referee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Referees $referees)
+    public function update(Request $request, Referees $referee)
     {
         $request->validate([
             'title' => 'required',
@@ -70,7 +70,7 @@ class RefereesController extends Controller
             'email' => 'required',
         ]);
 
-        $referees->update($request->all());
+        $referee->update($request->all());
 
         return redirect()->route('referees.index');
     }
@@ -78,9 +78,9 @@ class RefereesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Referees $referees)
+    public function destroy(Referees $referee)
     {
-        $referees->delete();
+        $referee->delete();
 
         return back();
     }
