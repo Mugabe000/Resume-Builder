@@ -10,6 +10,7 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\RefereesController;
 
 /*
 |--------------------------------------------------------------------------

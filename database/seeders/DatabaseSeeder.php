@@ -27,6 +27,9 @@ class DatabaseSeeder extends Seeder
         $this->call(
             UserDetailSeeder::class
         );
+        $this->call(
+            RefereesSeeder::class
+        );
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

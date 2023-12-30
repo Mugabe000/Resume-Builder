@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Referees extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'refname', 'phone', 'email'];
 }

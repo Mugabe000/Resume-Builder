@@ -12,7 +12,9 @@ class RefereesController extends Controller
      */
     public function index()
     {
-        //
+        $referees = auth()->user()->referees;
+
+        return view('referees.index', compact('referees'));
     }
 
     /**
@@ -20,7 +22,7 @@ class RefereesController extends Controller
      */
     public function create()
     {
-        //
+        return view('referees.create');
     }
 
     /**
@@ -28,7 +30,16 @@ class RefereesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'refname' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
+        auth()->user()->referees()->create($request->all());
+
+        return redirect()->route('referees.index');
     }
 
     /**
@@ -44,7 +55,7 @@ class RefereesController extends Controller
      */
     public function edit(Referees $referees)
     {
-        //
+        return view('referees.edit', compact('referees'));
     }
 
     /**
@@ -52,7 +63,16 @@ class RefereesController extends Controller
      */
     public function update(Request $request, Referees $referees)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'refname' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
+        $referees->update($request->all());
+
+        return redirect()->route('referees.index');
     }
 
     /**
@@ -60,6 +80,8 @@ class RefereesController extends Controller
      */
     public function destroy(Referees $referees)
     {
-        //
+        $referees->delete();
+
+        return back();
     }
 }

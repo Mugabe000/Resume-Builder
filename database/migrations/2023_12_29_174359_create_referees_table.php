@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('referees', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+
+            $table->string('title');
+            $table->string('refname');
+            $table->string('phone');
+            $table->string('email')->unique();
+
             $table->timestamps();
         });
     }

@@ -4,11 +4,11 @@
     <div class="text-white  mb-2 min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
         <ul class="flex border-b sticky">
-            <li class="mr-1">
+            <li class="mr-1 -mb-px">
                 <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
                     href="{{ route('user_detail.index') }}">Home</a>
             </li>
-            <li class="-mb-px mr-1">
+            <li class="mr-1">
                 <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
                     href="{{ route('education.index') }}">Education</a>
             </li>
@@ -19,6 +19,10 @@
             <li class="mr-1">
                 <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
                     href="{{ route('skill.index') }}">Skills</a>
+            </li>
+            <li class="mr-1">
+                <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                    href="{{ route('referees.index') }}">Referees</a>
             </li>
 
         </ul>

@@ -16,37 +16,37 @@ class EducationSeeder extends Seeder
      */
     public function run(): void
     {
-        // Education::factory()->count(15)->create();
-        DB::table('education')->insert(
-            [
-                [
-                    'user_id'=>1,
-                    'school_name'=>'University of Nairobi',
-                    'school_location'=>'Nairobi',
-                    'degree'=>'Bachelors',
-                    'field_of_study'=>'Software Engineering',
-                    'graduation_start_date'=>Carbon::now(),
-                    'graduation_end_date'=>Carbon::now()
-                ],
-                [
-                    'user_id'=>1,
-                    'school_name'=>'University of Rwanda',
-                    'school_location'=>'Nyarugenge, Kigali, Rwanda',
-                    'degree'=>'Masters',
-                    'field_of_study'=>'Cyber Security',
-                    'graduation_start_date'=>Carbon::now(),
-                    'graduation_end_date'=>Carbon::now()
-                ],
-                [
-                    'user_id'=>1,
-                    'school_name'=>'University of Nairobi',
-                    'school_location'=>'Nairobi',
-                    'degree'=>'Bachelors',
-                    'field_of_study'=>'Software Engineering',
-                    'graduation_start_date'=>Carbon::now(),
-                    'graduation_end_date'=>Carbon::now()
-                ],
-            ]
-        );
+        Education::factory()->count(3)->create();
+        // DB::table('education')->insert(
+        //     [
+        //         [
+        //             'user_id'=>1,
+        //             'school_name'=>'University of Nairobi',
+        //             'school_location'=>'Nairobi',
+        //             'degree'=>'Bachelors',
+        //             'field_of_study'=>'Software Engineering',
+        //             'graduation_start_date'=>Carbon::now(),
+        //             'graduation_end_date'=>Carbon::now()
+        //         ],
+        //         [
+        //             'user_id'=>1,
+        //             'school_name'=>'University of Rwanda',
+        //             'school_location'=>'Nyarugenge, Kigali, Rwanda',
+        //             'degree'=>'Masters',
+        //             'field_of_study'=>'Cyber Security',
+        //             'graduation_start_date'=>Carbon::now(),
+        //             'graduation_end_date'=>Carbon::now()
+        //         ],
+        //         [
+        //             'user_id'=>1,
+        //             'school_name'=>'University of Nairobi',
+        //             'school_location'=>'Nairobi',
+        //             'degree'=>'Bachelors',
+        //             'field_of_study'=>'Software Engineering',
+        //             'graduation_start_date'=>Carbon::now(),
+        //             'graduation_end_date'=>Carbon::now()
+        //         ],
+        //     ]
+        // );
     }
 }

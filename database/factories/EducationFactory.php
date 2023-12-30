@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use Carbon\Carbon;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Education>
  */
@@ -22,6 +24,8 @@ class EducationFactory extends Factory
             'school_location'=>$this->faker->name,
             'degree'=>$this->faker->name,
             'field_of_study'=>$this->faker->name,
+            'graduation_start_date'=>Carbon::now(),
+            'graduation_end_date'=>Carbon::now(),
         ];
     }
 }
