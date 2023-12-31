@@ -64,7 +64,7 @@
 
             <div class="flex-col w-full justify-center container text-white text-center">
 
-                <h2 class="font-bold">Welcome to Resume Builder Builder</h2>
+                <h2 class="font-bold">Welcome to Resume Builder</h2>
 
 
                 <a href="/user_detail/create" role="button">

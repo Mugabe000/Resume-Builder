@@ -76,6 +76,10 @@
             display: flex;
             gap: .25rem;
         }
+
+        img {
+            width: 200px;
+        }
     </style>
 </head>
 
@@ -83,6 +87,9 @@
     <div class="body" id="container">
 
         <section class="about">
+            <div class="content" style="text-align: center">
+                <img src="{{ asset('images/' . $user->details->image_path) }}" alt="{{ $user->details->image_path }}">
+            </div>
             <h2 class="section-title">
                 {{ $user->details->fullname }}
             </h2>
