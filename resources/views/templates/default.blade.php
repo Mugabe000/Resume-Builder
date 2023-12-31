@@ -29,13 +29,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            width: 100%;
         }
 
         .body {
-            width: 60%;
-            height: fit-content;
+            height: 100%;
+            width: 100%;
             padding: 2rem;
             background-color: rgb(255, 255, 255);
             border: 1px solid #999;
@@ -174,6 +172,18 @@
                     </li>
                 @endforeach
             </ul>
+        </section>
+
+        <section class="referees">
+            <h2 class="section-title">References</h2>
+            @foreach ($user->referees as $reference)
+                <div>
+                    <p>{{ $reference->refname }}</p>
+                    <p>{{ $reference->phone }} </p>
+                    <p>{{ $reference->email }} </p>
+                    <p>{{ $reference->title }}</p>
+                </div>
+            @endforeach
         </section>
 
     </div>

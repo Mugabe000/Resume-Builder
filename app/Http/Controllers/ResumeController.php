@@ -8,6 +8,11 @@ class ResumeController extends Controller
 {
     public function index()
     {
+        $details = auth()->user()->details;
+        return view('resume', compact('details'));
+    }
+    public function template(){
+
         $user = auth()->user();
         return view('templates.default', compact('user'));
     }

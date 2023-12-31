@@ -36,10 +36,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 })->group(function () {
-    // Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
-    Route::get('resume', function () {
-        return view('resume');
-    })->name('resume');
+    Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
+    // Route::get('resume', function () {
+    //     return view('resume');
+    // })->name('resume');
 });
 
 
@@ -53,6 +53,6 @@ Route::resource('referees', RefereesController::class)->middleware('auth');
 
 Route::resource('skill', SkillController::class)->middleware('auth');
 
-Route::get('/templates', [ResumeController::class,'index'])->name('templates.default')->middleware('auth');
+Route::get('/templates', [ResumeController::class,'template'])->name('templates.default')->middleware('auth');
 
 Route::get('resume/download', [ResumeController::class,'download'])->name('resume.download')->middleware('auth');
