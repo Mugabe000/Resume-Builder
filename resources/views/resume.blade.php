@@ -6,7 +6,7 @@
     @endphp
 
     @if (!empty($details->image_path) && $details->fullname != null)
-        <div class="text-white  min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
+        <div class="text-white mt-1 min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
             <ul class="flex border-b sticky">
                 <li class="mr-1 -mb-px">
@@ -68,9 +68,10 @@
 
 
                 <a href="/user_detail/create" role="button">
-                    <button
-                        class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Create
-                        Resume</button></a>
+                    <x-button class="ms-4">
+                        {{ __('Create Resume') }}
+                    </x-button>
+                </a>
 
             </div>
 

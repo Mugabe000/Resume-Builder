@@ -6,18 +6,18 @@
     @endphp
 
     @if (!empty($details->image_path) && $details->fullname != null)
-        <div class=" flex-row-reverse  right-2 w-2/5 overflow-hidden  absolute top-0 z-50 h-screen   dark:bg-gray-900">
-
-            <iframe src="/templates" class="overflow-hidden w-full border-none   h-full"></iframe>
-
-            <div class="flex justify-between h-fit w-full  z-50 dark:bg-gray-900 p-2">
-                <button class="px-6 py-1 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Close</button>
-                <a href="{{ route('resume.download') }}">
-
-                    <button class="px-6 py-1  bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">
-                        Save
-                    </button>
-                </a>
+        <div class=" flex justify-center w-full overflow-hidden  absolute   h-screen   dark:bg-gray-900">
+            <div class="w-2/5">
+                <iframe src="/templates" class="overflow-hidden w-full border-none h-full"></iframe>
+            </div>
+            <div>
+                <div class="flex flex-col gap-2 h-fit w-full  z-50 dark:bg-gray-900 p-2">
+                    <a href="{{ route('resume.download') }}">
+                        <x-button class="ms-4">
+                            {{ __('Download') }}
+                        </x-button>
+                    </a>
+                </div>
             </div>
         </div>
     @else
