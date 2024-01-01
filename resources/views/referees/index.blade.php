@@ -32,15 +32,15 @@
         </div>
 
 
-        @foreach ($referees as $ref)
-            <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
+        <div class="grid grid-cols-3 px-4 py-2 text-white mb-4 border-solid border border-black ">
+            @foreach ($referees as $ref)
                 <div class="mb-2">
-                    <address>
+                    <div>
                         <p>{{ $ref->title }}</p>
                         <p>{{ $ref->refname }}</p>
                         <p>{{ $ref->phone }} </p>
                         <p>{{ $ref->email }} </p>
-                    </address>
+                    </div>
 
                     <a href=" {{ route('referees.edit', $ref) }} " role="button"><button
                             class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
@@ -54,8 +54,9 @@
                     </form>
 
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
+
 
         <a href=" {{ route('referees.create') }} " role="button"><button
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">+ Add

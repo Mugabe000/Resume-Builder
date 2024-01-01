@@ -2,10 +2,10 @@
 
 @section('content')
     @php
-        use App\Models\User;
+        use App\Models\UserDetail;
     @endphp
 
-    @if (User::has('details')->count() != 0)
+    @if (!empty($details->image_path) && $details->fullname != null)
         <div class="text-white  min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
             <ul class="flex border-b sticky">

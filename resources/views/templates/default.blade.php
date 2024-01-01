@@ -62,10 +62,15 @@
         /* .education {} */
 
         /* .experience {} */
+        .referees>div {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
 
         .skills>ul {
-            display: flex;
-            gap: 2rem;
+            display: grid;
+            gap: .3rem;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
         }
 
         .content {
@@ -89,10 +94,11 @@
         <section class="about">
             <div class="content" style="text-align: center">
                 <img src="{{ asset('images/' . $user->details->image_path) }}" alt="{{ $user->details->image_path }}">
+
+                <h2 class="section-title">
+                    {{ $user->details->fullname }}
+                </h2>
             </div>
-            <h2 class="section-title">
-                {{ $user->details->fullname }}
-            </h2>
             <div class="content" style="text-align: center">
 
                 <p>{{ $user->details->address }}</p>
@@ -183,14 +189,16 @@
 
         <section class="referees">
             <h2 class="section-title">References</h2>
-            @foreach ($user->referees as $reference)
-                <div>
-                    <p>{{ $reference->refname }}</p>
-                    <p>{{ $reference->phone }} </p>
-                    <p>{{ $reference->email }} </p>
-                    <p>{{ $reference->title }}</p>
-                </div>
-            @endforeach
+            <div>
+                @foreach ($user->referees as $reference)
+                    <div>
+                        <p><b>{{ $reference->refname }}</b></p>
+                        <p>{{ $reference->phone }} </p>
+                        <p>{{ $reference->email }} </p>
+                        <p>{{ $reference->title }}</p>
+                    </div>
+                @endforeach
+            </div>
         </section>
 
     </div>

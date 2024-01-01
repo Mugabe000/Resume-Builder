@@ -33,24 +33,19 @@
 
 
 
-        <div class="px-4 py-2 text-white mb-4  border-solid border border-black  sticky">
-            <div class="mb-2">
-                <h4> {{ $details->fullname }} {{ $details->email }} {{ $details->phone }} </h4>
+        <div class="px-4 py-2 text-white pb-4  border-solid border border-black  sticky">
+            <h4> {{ $details->fullname }} {{ $details->email }} {{ $details->phone }} </h4>
 
-                <a href=" {{ route('user_detail.edit', $details) }} " role="button"><button
-                        class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
+            <a href=" {{ route('user_detail.edit', $details) }} " role="button"><button
+                    class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
 
-                <form action="{{ route('user_detail.destroy', $details) }}" method="POST" style="display: inline-block">
-                    @csrf
-                    @method('DELETE')
+            <form action="{{ route('user_detail.destroy', $details) }}" method="POST" style="display: inline-block">
+                @csrf
+                @method('DELETE')
 
-                    <button
-                        class="px-6 py-1 mt-2  text-white font-semibold rounded bg-red-600 hover:bg-red-500 w-fit">Delete</button>
-                </form>
-
-            </div>
-
-
+                <button
+                    class="px-6 py-1 mt-2  text-white font-semibold rounded bg-red-600 hover:bg-red-500 w-fit">Delete</button>
+            </form>
         </div>
     </div>
 @endsection

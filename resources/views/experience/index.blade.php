@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-white mb-2  w-9/12 ml-auto mr-auto">
+    <div class="text-white pb-2  w-9/12 ml-auto mr-auto">
 
         <ul class="flex border-b">
             <li class="mr-1">
@@ -32,8 +32,8 @@
         </div>
 
 
-        @foreach ($experiences as $exp)
-            <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
+        <div class="grid grid-cols-3 px-4 py-2 text-white mb-4 border-solid border border-black ">
+            @foreach ($experiences as $exp)
                 <div class="mb-2">
                     <h4> {{ $exp->job_title }} ({{ $exp->start_date }} to {{ $exp->end_date }}) </h4>
 
@@ -55,8 +55,8 @@
                     </form>
 
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
         <a href=" {{ route('experience.create') }} " role="button"><button
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">+ Add

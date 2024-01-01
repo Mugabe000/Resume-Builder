@@ -59,9 +59,9 @@ class UserDetailController extends Controller
         ]);
 
 
-        // $newImageName = time() . '_' . $request->fullname . '.' . $request->image->guessClientExtension();
+        $newImageName = time() . '_' . $request->fullname . '.' . $request->image->guessClientExtension();
 
-        // $request->image->move(public_path('images'), $newImageName);
+        $request->image->move(public_path('images'), $newImageName);
 
 
         $detail = new UserDetail();
@@ -71,8 +71,8 @@ class UserDetailController extends Controller
         $detail->email = $request->input('email');
         $detail->address = $request->input('address');
         $detail->summary = $request->input('summary');
-        // $detail->image_path = $newImageName;
-        $detail->image_path = $request->input('image');
+        $detail->image_path = $newImageName;
+        // $detail->image_path = $request->input('image');
         $detail->user_id = auth()->id();
 
         $detail->save();

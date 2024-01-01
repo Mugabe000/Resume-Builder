@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-white mb-2  w-9/12 ml-auto mr-auto">
+    <div class="text-white pb-2  w-9/12 ml-auto mr-auto">
         <ul class="flex border-b">
             <li class="mr-1">
                 <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
@@ -29,8 +29,8 @@
             <h2>Education Summary: </h2>
         </div>
 
-        @foreach ($education as $edu)
-            <div class="px-4 py-2 text-white mb-4 border-solid border border-black ">
+        <div class="grid grid-cols-3 px-4 py-2 text-white border-solid border border-black ">
+            @foreach ($education as $edu)
                 <div class="mb-2">
                     <h4 class="card-title"> {{ $edu->degree }} {{ $edu->school_name }} ({{ $edu->graduation_start_date }} -
                         {{ $edu->graduation_end_date }})</h4>
@@ -47,8 +47,8 @@
                     </form>
 
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
 
         <a href=" {{ route('education.create') }} " role="button"><button
