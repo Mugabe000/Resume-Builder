@@ -18,7 +18,7 @@ class RefereesFactory extends Factory
     {
         return [
             'user_id'=>1,
-            'title'=>$this->faker->words(8, true),
+            'title'=>$this->faker->jobTitle(),
             'refname'=> $this->faker->name,
             'phone'=>fake()->unique()->e164PhoneNumber(),
             'email'=> $this->faker->unique()->safeEmail(),

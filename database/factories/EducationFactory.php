@@ -20,10 +20,10 @@ class EducationFactory extends Factory
     {
         return [
             'user_id'=>1,
-            'school_name'=>$this->faker->name,
-            'school_location'=>$this->faker->name,
-            'degree'=>$this->faker->name,
-            'field_of_study'=>$this->faker->name,
+            'school_name'=>$this->faker->word . ' ' . 'University',
+            'school_location'=>$this->faker->city . ',' . $this->faker->country,
+            'degree'=>'Bachelors',
+            'field_of_study'=>$this->faker->jobTitle(),
             'graduation_start_date'=>Carbon::now(),
             'graduation_end_date'=>Carbon::now(),
         ];

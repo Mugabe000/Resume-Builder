@@ -55,6 +55,12 @@
             text-align: center;
         }
 
+        .profile_name {
+            font-weight: bolder;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
         /* .about {} */
 
         /* .summary {} */
@@ -83,7 +89,7 @@
         }
 
         img {
-            width: 200px;
+            width: 100px;
         }
     </style>
 </head>
@@ -95,11 +101,9 @@
             <div class="content" style="text-align: center">
                 <img src="{{ asset('images/' . $user->details->image_path) }}" alt="{{ $user->details->image_path }}">
 
-                <h2 class="section-title">
+                <h2 class="profile_name">
                     {{ $user->details->fullname }}
                 </h2>
-            </div>
-            <div class="content" style="text-align: center">
 
                 <p>{{ $user->details->address }}</p>
 
@@ -118,6 +122,32 @@
                     {{ $user->details->summary }}
                 </em>
             </div>
+        </section>
+
+        <section class="experience">
+            <h2 class=" section-title ">Experience</h2>
+
+            @foreach ($user->experiences as $work)
+                <div class="content">
+                    <div class="flex-body">
+                        <div>
+                            <strong>{{ $work->employer }}</strong>
+                        </div>
+                        <div style="text-align: right"><strong>{{ $work->state }}</strong></div>
+                    </div>
+                    <div class="flex-body">
+                        <div>
+                            <strong>{{ $work->job_title }}</strong>
+                        </div>
+                        <div style="text-align: right">
+                            <em> from {{ $work->start_date }} to {{ $work->end_date }}</em>
+                        </div>
+                    </div>
+                    <div>
+                        {{ $work->achievement }}
+                    </div>
+                </div>
+            @endforeach
         </section>
 
         <section class="education">
@@ -143,32 +173,6 @@
                         <div style="text-align: right; display:inline-block">
                             <em>from {{ $edu->graduation_start_date }} to {{ $edu->graduation_end_date }}</em>
                         </div>
-                    </div>
-                </div>
-            @endforeach
-        </section>
-
-        <section class="experience">
-            <h2 class=" section-title ">Experience</h2>
-
-            @foreach ($user->experiences as $work)
-                <div class="content">
-                    <div class="flex-body">
-                        <div>
-                            <strong>{{ $work->employer }}</strong>
-                        </div>
-                        <div style="text-align: right"><strong>{{ $work->state }}</strong></div>
-                    </div>
-                    <div class="flex-body">
-                        <div>
-                            <strong>{{ $work->job_title }}</strong>
-                        </div>
-                        <div style="text-align: right">
-                            <em> from {{ $work->start_date }} to {{ $work->end_date }}</em>
-                        </div>
-                    </div>
-                    <div>
-                        {{ $work->achievement }}
                     </div>
                 </div>
             @endforeach

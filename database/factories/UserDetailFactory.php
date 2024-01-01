@@ -21,7 +21,7 @@ class UserDetailFactory extends Factory
             'fullname'=>$this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone'=>fake()->unique()->e164PhoneNumber(),
-            'address'=>$this->faker->words(1,true),
+            'address'=>$this->faker->address,
             'summary'=>$this->faker->sentence(80),
             'image_path'=>$this->faker->image(public_path('images'), 500, 500, null, false)
         ];
