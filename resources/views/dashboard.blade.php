@@ -11,7 +11,7 @@
                 <iframe src="/templates" class="overflow-hidden w-full border-none h-full"></iframe>
             </div>
             <div>
-                <div class="flex flex-col gap-2 h-fit w-full  z-50 dark:bg-gray-900 p-2">
+                <div class="flex flex-col gap-2 h-fit w-full  z-50 dark:bg-transparent p-2">
                     <a href="{{ route('resume.download') }}">
                         <x-button class="ms-4">
                             {{ __('Download') }}
