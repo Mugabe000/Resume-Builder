@@ -47,5 +47,12 @@
                     class="px-6 py-1 mt-2  text-white font-semibold rounded bg-red-600 hover:bg-red-500 w-fit">Delete</button>
             </form>
         </div>
+
+        <div class="mt-3">
+
+            <div class="text-right">
+                <a href=" {{ route('education.index') }} " role="button">Education&gt;&gt;</a>
+            </div>
+        </div>
     </div>
 @endsection
