@@ -22,13 +22,14 @@ class DatabaseSeeder extends Seeder
             SkillsSeeder::class
         );
         $this->call(
-            ExperienceSeeder::class
-        );
-        $this->call(
             UserDetailSeeder::class
         );
         $this->call(
             RefereesSeeder::class
+        );
+
+        $this->call(
+            ExperienceSeeder::class
         );
         // \App\Models\User::factory(10)->create();
 
