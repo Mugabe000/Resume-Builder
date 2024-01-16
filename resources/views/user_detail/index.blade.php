@@ -39,13 +39,13 @@
             <a href=" {{ route('user_detail.edit', $details) }} " role="button"><button
                     class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
 
-            <form action="{{ route('user_detail.destroy', $details) }}" method="POST" style="display: inline-block">
+            {{-- <form action="{{ route('user_detail.destroy', $details) }}" method="POST" style="display: inline-block">
                 @csrf
                 @method('DELETE')
 
                 <button
                     class="px-6 py-1 mt-2  text-white font-semibold rounded bg-red-600 hover:bg-red-500 w-fit">Delete</button>
-            </form>
+            </form> --}}
         </div>
 
         <div class="mt-3">
