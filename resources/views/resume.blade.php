@@ -6,27 +6,27 @@
     @endphp
 
     @if (!empty($details->image_path) && $details->fullname != null)
-        <div class="text-white mt-1 min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
+        <div class="text-white  min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
-            <ul class="flex border-b sticky">
+            <ul class="flex border-b  sticky">
                 <li class="mr-1 -mb-px">
-                    <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
+                    <a class="bg-blue-500 inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-800 font-semibold"
                         href="{{ route('user_detail.index') }}">Home</a>
                 </li>
                 <li class="mr-1">
-                    <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
                         href="{{ route('education.index') }}">Education</a>
                 </li>
                 <li class="mr-1">
-                    <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
                         href="{{ route('experience.index') }}">Work History</a>
                 </li>
                 <li class="mr-1">
-                    <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
                         href="{{ route('skill.index') }}">Skills</a>
                 </li>
                 <li class="mr-1">
-                    <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
                         href="{{ route('referees.index') }}">Referees</a>
                 </li>
 
