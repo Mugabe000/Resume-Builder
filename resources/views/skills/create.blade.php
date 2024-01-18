@@ -24,9 +24,9 @@
             <button type="submit"
                 class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-1/2">Save</button>
         </form>
-
+        {{--
         <div class="text-right">
             <a class=" btn btn-primary" href=" {{ route('skill.index') }} " role="button">Next</a>
-        </div>
+        </div> --}}
     </div>
 @endsection

@@ -32,8 +32,10 @@
         <div class="grid grid-cols-3 px-4 py-2 text-white border-solid border border-black ">
             @foreach ($education as $edu)
                 <div class="mb-2">
-                    <h4 class="card-title"> {{ $edu->degree }} {{ $edu->school_name }} ({{ $edu->graduation_start_date }} -
-                        {{ $edu->graduation_end_date }})</h4>
+                    <h4 class="card-title"> {{ $edu->degree }} <br /> {{ $edu->school_name }} <br />
+                        ({{ $edu->graduation_start_date }} to
+                        {{ $edu->graduation_end_date }})
+                    </h4>
 
                     <a href=" {{ route('education.edit', $edu) }} " role="button"><button
                             class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>

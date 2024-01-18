@@ -35,7 +35,7 @@
         <div class="grid grid-cols-3 px-4 py-2 text-white mb-4 border-solid border border-black ">
             @foreach ($experiences as $exp)
                 <div class="mb-2">
-                    <h4> {{ $exp->job_title }} ({{ $exp->start_date }} to {{ $exp->end_date }}) </h4>
+                    <h4> {{ $exp->job_title }} <br /> ({{ $exp->start_date }} to {{ $exp->end_date }}) </h4>
 
                     <ul>
                         <li>{{ $exp->employer }}</li>

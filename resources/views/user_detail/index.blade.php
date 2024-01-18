@@ -34,7 +34,7 @@
 
 
         <div class="px-4 py-2 text-white pb-4  border-solid border border-black  sticky">
-            <h4> {{ $details->fullname }} {{ $details->email }} {{ $details->phone }} </h4>
+            <h4> {{ $details->fullname }} <br /> {{ $details->email }} <br /> {{ $details->phone }} </h4>
 
             <a href=" {{ route('user_detail.edit', $details) }} " role="button"><button
                     class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
