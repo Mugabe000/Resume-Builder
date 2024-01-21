@@ -19,7 +19,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans min-h-fit">
     <x-banner />
 
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -35,7 +35,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="h-fit">
             {{-- Validation Errors --}}
             <div>
                 @if (session()->has('errors'))

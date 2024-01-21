@@ -31,13 +31,38 @@ class UserDetailController extends Controller
      */
     public function store(Request $request)
     {
+        //Useful methods mostly used
+        //guessExtension()
+        //getMimeType()
+        //store()
+        //asStore()
+        //storePublicly()
+        //move()
+        //getClientOriginalName()
+        //getClientMimeType()
+        //guessClientExtension()
+        //getSize()
+        //getError()
+        //isValid()
+
+        // $test = $request->file('image')->isValid();
+
+        // dd($test);
+
         $request->validate([
             'fullname'=>'required',
             'email'=>'required|email',
             'phone'=>'required',
             'summary' => 'required',
+            'image'=> 'required | mimes:jpg,png,jpeg | max:50480'
 
         ]);
+
+
+        $newImageName = time() . '_' . $request->fullname . '.' . $request->image->guessClientExtension();
+
+        $request->image->move(public_path('images'), $newImageName);
+
 
         $detail = new UserDetail();
 
@@ -45,7 +70,9 @@ class UserDetailController extends Controller
         $detail->phone = $request->input('phone');
         $detail->email = $request->input('email');
         $detail->address = $request->input('address');
-
+        $detail->summary = $request->input('summary');
+        $detail->image_path = $newImageName;
+        // $detail->image_path = $request->input('image');
         $detail->user_id = auth()->id();
 
         $detail->save();
@@ -79,6 +106,7 @@ class UserDetailController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'summary' => 'required',
+            'image'=> 'required | mimes:jpg,png,jpeg | max:50480'
         ]);
 
 

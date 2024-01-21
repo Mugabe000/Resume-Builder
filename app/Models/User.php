@@ -67,10 +67,16 @@ class User extends Authenticatable
         return $this->hasMany(Experience::class);
     }
 
-     public function skills(){
+    public function referees(){
+        return $this->hasMany(Referees::class);
+    }
+
+    public function skills(){
         return $this->hasMany(Skill::class);
     }
-         public function details(){
+
+    public function details(){
         return $this->hasOne(UserDetail::class);
     }
+
 }

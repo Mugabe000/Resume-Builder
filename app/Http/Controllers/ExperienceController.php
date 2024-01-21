@@ -35,6 +35,7 @@ class ExperienceController extends Controller
             'employer' => 'required',
             'city' => 'required',
             'state' => 'required',
+            'achievement' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
@@ -70,6 +71,7 @@ class ExperienceController extends Controller
             'employer' => 'required',
             'city' => 'required',
             'state' => 'required',
+            'achievement'=> 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);

@@ -1,114 +1,80 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('content')
+    @php
+        use App\Models\UserDetail;
+    @endphp
 
-    <title>Resume</title>
+    @if (!empty($details->image_path) && $details->fullname != null)
+        <div class="text-white  min-h-screen overflow-auto relative  w-9/12 ml-auto mr-auto">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+            <ul class="flex border-b  sticky">
+                <li class="mr-1 -mb-px">
+                    <a class="bg-blue-500 inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-800 font-semibold"
+                        href="{{ route('user_detail.index') }}">Home</a>
+                </li>
+                <li class="mr-1">
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
+                        href="{{ route('education.index') }}">Education</a>
+                </li>
+                <li class="mr-1">
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
+                        href="{{ route('experience.index') }}">Work History</a>
+                </li>
+                <li class="mr-1">
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
+                        href="{{ route('skill.index') }}">Skills</a>
+                </li>
+                <li class="mr-1">
+                    <a class="bg-blue-500 inline-block py-2 px-4 text-white  hover:bg-blue-600 font-semibold"
+                        href="{{ route('referees.index') }}">Referees</a>
+                </li>
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+            </ul>
+
+            <div class="text-left  w-9/12 mr-auto sticky">
+                <h2 class="font-bold">About: </h2>
+            </div>
 
 
 
-    <!-- Styles -->
-    @livewireStyles
-</head>
+            <div class="px-4 py-2 text-white mb-4  border-solid border border-black  sticky">
+                <div class="mb-2">
+                    <h4> {{ $details->fullname }} {{ $details->email }} {{ $details->phone }} </h4>
 
-<body class="font-sans antialiased">
-    <x-banner />
+                    <a href=" {{ route('user_detail.edit', $details) }} " role="button"><button
+                            class="px-6 py-1 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Edit</button></a>
 
-    <div class=" min-h-screen bg-gray-100 dark:bg-gray-900">
-        @livewire('navigation-menu')
-        <div class="flex w-full">
-            <div class="flex-col justify-center container text-white text-center">
+                    <form action="{{ route('user_detail.destroy', $details) }}" method="POST"
+                        style="display: inline-block">
+                        @csrf
+                        @method('DELETE')
 
-                <h2 class="font-bold">Welcome to Resume Builder Builder</h2>
+                        <button
+                            class="px-6 py-1 mt-2  text-white font-semibold rounded bg-red-600 hover:bg-red-500 w-fit">Delete</button>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    @else
+        <div class=" min-h-screen bg-gray-100 dark:bg-gray-900">
+
+            <div class="flex-col w-full justify-center container text-white text-center">
+
+                <h2 class="font-bold">Welcome to Resume Builder</h2>
 
 
                 <a href="/user_detail/create" role="button">
-                    <button
-                        class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">Create
-                        Resume</button></a>
-
-            </div>
-
-            <div class="mr-9 w-10/12">
-                <div class="bg-white  mr-1 w-9/12">
-                    <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Resume</h2>
-
-                    <section class="heading">
-                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">{{ $user->details->fullname }}
-                        </h2>
-
-                        <p>Email: {{ $user->details->email }}</p>
-                        <p>Phone: {{ $user->details->phone }}</p>
-                        <p>Address: {{ $user->details->address }}</p>
-
-                    </section>
-
-                    <section class="summary">
-                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Summary:</h2>
-
-                        <p>
-                            <strong>
-                                {{ $user->details->summary }}
-                            </strong>
-                        </p>
-                    </section>
-
-                    <section class="education">
-
-                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Education</h2>
-
-                        @foreach ($user->education as $edu)
-                            <h4> Degree: {{ $edu->degree }}</h4>
-
-                            <p>School: {{ $edu->school_name }} </p>
-                            <p>Start Date: {{ $edu->graduation_start_date }} </p>
-                            <p>Graduation Date: {{ $edu->graduation_end_date }} </p>
-                        @endforeach
-                    </section>
-
-                    <section class="work">
-                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Work History</h2>
-
-                        @foreach ($user->experiences as $work)
-                            <h3>
-                                Job Title: {{ $work->job_title }}
-                            </h3>
-                            <p>Employer: {{ $work->employer }} </p>
-                            <p>Start Date: {{ $work->start_date }} </p>
-                            <p>End Date: {{ $work->end_date }} </p>
-                        @endforeach
-                    </section>
-
-                    <section class="skill">
-
-                        <h2 class="pt-5 pb-5 border-solid border-t border-b border-black">Skills</h2>
-
-                        @foreach ($user->skills as $skill)
-                            <h4> {{ $skill->name }} ({{ $skill->rating }} out of 5)</h4>
-                        @endforeach
-                    </section>
-
-                </div>
-                <a href="{{ route('resume.download') }}"><button
-                        class="px-12 py-2 mt-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 w-fit">
-                        Download
-                    </button>
+                    <x-button class="ms-4">
+                        {{ __('Create Resume') }}
+                    </x-button>
                 </a>
+
             </div>
+
         </div>
-
-    </div>
-
-</body>
-
-</html>
+    @endif
+@endsection

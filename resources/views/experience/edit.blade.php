@@ -31,9 +31,14 @@
             </label>
 
             <label for="state" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                State:
+                Country/State:
                 <input type="text" placeholder="State" name='state' id="state"
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5" value="{{ $experience->state }}">
+            </label>
+
+            <label for="achievement" class="block mb-2 text-sm font-medium text-white">
+                <p> Achievement:</p>
+                <textarea name="achievement" id="achievement" cols="55" rows="4" class="text-black">{{ $experience->achievement }}</textarea>
             </label>
 
             <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">

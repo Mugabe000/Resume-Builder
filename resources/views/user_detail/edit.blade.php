@@ -7,7 +7,7 @@
         </div>
 
         <form class="flex-col w-11/12 ml-auto mr-auto justify-center" action="{{ route('user_detail.update', $userDetail) }}"
-            method="POST">
+            method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -34,10 +34,17 @@
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5" value="{{ $userDetail->address }}">
             </label>
 
-            <label for="summary" class="block mb-2 text-sm font-medium text-black">
-                <textarea name="summary" id="summary" cols="55" rows="4">
+            <label for="summary" class="block mb-2 flex-col text-sm font-medium text-white">
+                <p>Summary:</p>
+                <textarea name="summary" id="summary" cols="55" rows="4" class="text-black">
                     {{ $userDetail->summary }}
                 </textarea>
+            </label>
+
+            <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Profile:
+                <input type="file" name="image" id="image"
+                    class="bg-gray-100  text-gray-900 text-sm rounded block w-1/2 p-2.5 " value="{{ $userDetail->image }}">
             </label>
 
             <button type="submit"

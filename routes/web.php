@@ -10,6 +10,8 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\RefereesController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +33,15 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 })->group(function () {
     Route::get('resume', [ResumeController::class,'index'])->name('resume')->middleware('auth');
+    // Route::get('resume', function () {
+    //     return view('resume');
+    // })->name('resume');
 });
 
 
@@ -45,8 +51,10 @@ Route::resource('education', EducationController::class)->middleware('auth');
 
 Route::resource('experience', ExperienceController::class)->middleware('auth');
 
+Route::resource('referees', RefereesController::class)->middleware('auth');
+
 Route::resource('skill', SkillController::class)->middleware('auth');
 
-Route::get('resume/index', [ResumeController::class,'index'])->name('resume.index')->middleware('auth');
+Route::get('/templates', [ResumeController::class,'template'])->name('templates.default')->middleware('auth');
 
 Route::get('resume/download', [ResumeController::class,'download'])->name('resume.download')->middleware('auth');

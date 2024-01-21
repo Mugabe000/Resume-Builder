@@ -1,10 +1,28 @@
-<x-app-layout>
+@extends('layouts.app')
 
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <x-welcome />
+@section('content')
+    @php
+        use App\Models\UserDetail;
+    @endphp
+
+    @if (!empty($details->image_path) && $details->fullname != null)
+        <div class=" flex justify-center w-full overflow-hidden  absolute   h-screen   dark:bg-gray-900">
+            <div class="w-2/5">
+                <iframe src="/templates" class="overflow-hidden w-full border-none h-full"></iframe>
+            </div>
+            <div>
+                <div class="flex flex-col gap-2 h-fit w-full  z-50 dark:bg-transparent p-2">
+                    <a href="{{ route('resume.download') }}">
+                        <x-button class="ms-4">
+                            {{ __('Download') }}
+                        </x-button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div> --}}
-</x-app-layout>
+    @else
+        <div class="text-white flex justify-center">
+            <h1>Your Resume will be Displayed Here!</h1>
+        </div>
+    @endif
+@endsection
